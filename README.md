@@ -1,19 +1,21 @@
 # decryptic
 
-A Typer-based command-line helper for fetching Sydney Morning Herald crosswords.
+A Typer-based cli tool for fetching Sydney Morning Herald crossword and converting them to .puz files.
 
 ## Usage
 
-Invoke the CLI with Python to preview the resolved download targets:
+Invoke the CLI with Python to download crosswords:
 
 ```bash
-python hello.py download cryptic
+python main.py cryptic mini -d 2019-10-24:2025-10-17
 ```
+
+### Arguments
+
+- `types`: Crossword types to download. Options: `cryptic`, `mini`, `quick`. Default: `cryptic`
 
 ### Options
 
-- `TYPE...` (positional, repeatable): choose one or more crossword variants (`cryptic`, `mini`, `quick`). When multiple types are requested, each type gets its own subdirectory under the output path.
-- `--date` / `-d`: supply a single day or an inclusive range (`2025-10-17:2025-10-20`). Any format supported by `python-dateutil` works (e.g. `17 Oct 2025`, `1/2/2025`). Ambiguous numeric dates are interpreted as day/month/year, but if that ordering is impossible the parser falls back to month/day/year. If omitted, the app uses the current date in the Australia/Sydney timezone.
-- `--output` / `-o`: directory to store multiple downloads, or a filename when only one crossword is requested. Defaults to the current working directory.
-
-The current implementation prints the planned downloads rather than fetching the puzzles, keeping the interface ready for future integration work.
+- `--date, -d`: Single date or inclusive range in the form `START:END`. Accepts most date formats. Default: today's date
+- `--output, -o`: Output directory for multiple files or filename when a single crossword is requested. Default: current directory
+- `--help`: Show help message and exit
