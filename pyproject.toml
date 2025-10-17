@@ -1,10 +1,16 @@
 [project]
 name = "decryptic"
 version = "0.1.0"
-description = "Add your description here"
+description = "Scrape SMH crosswords and convert them to .puz files"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "bs4>=0.0.2",
+    "emoji>=2.15.0",
+    "html2text>=2025.4.15",
+    "niquests[speedups]>=3.15.2",
     "puzpy>=0.2.6",
+    "python-dateutil>=2.9.0",
+    "typer>=0.19.2",
+    "unidecode>=1.4.0",
 ]
